@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes da Tarefa</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="header">Detalhes da Tarefa</h1>
+    <div class="task-details">
+      <h2><%= @task.title %></h2>
+      <p class="task-description"><%= @task.description %></p>
+    </div>
+
+    <div class="task-actions">
+      <%= link_to 'Editar', edit_task_path(@task), class: "btn-edit" %>
+      <%= link_to 'Voltar', tasks_path, class: "btn-back" %>
+    </div>
+  </div>
+</body>
+</html>

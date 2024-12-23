@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="header">Lista de Tarefas</h1>
+    <%= link_to 'Nova Tarefa', new_task_path, class: "btn-new-task" %>
+    <table class="task-table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td><%= task.title %></td>
+            <td><%= task.description %></td>
+            <td>
+              <%= link_to 'Mostrar', task, class: "btn-show" %>
+              <%= link_to 'Editar', edit_task_path(task), class: "btn-edit" %>
+              <%= link_to 'Excluir', task, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn-delete" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
